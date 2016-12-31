@@ -10,7 +10,7 @@ import java.util.Set;
  * on 08.11.2016.
  */
 public class LoggedUser {
-    protected int id=0;
+    protected int id=1;
     protected Set<Role> roles;
     protected boolean enabled=true;
 
