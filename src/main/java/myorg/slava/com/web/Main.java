@@ -1,4 +1,4 @@
-package myorg.slava.com;
+package myorg.slava.com.web;
 
 /**
  * v.seregin
