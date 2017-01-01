@@ -3,15 +3,19 @@ package myorg.slava.com.service;
 import myorg.slava.com.model.User;
 import myorg.slava.com.repository.UserRepository;
 import myorg.slava.com.util.exception.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by home on 31.12.2016.
- */
+@Service
 public class UserServiceImpl implements UserService {
+    @Qualifier("userRepository")
+    @Autowired
     private UserRepository repository;
-    @Override
+
+      @Override
     public User save(User user) {
         return null;
     }

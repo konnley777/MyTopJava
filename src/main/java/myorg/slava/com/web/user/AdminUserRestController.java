@@ -1,10 +1,11 @@
 package myorg.slava.com.web.user;
 
 import myorg.slava.com.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-/**
- * Created by home on 31.12.2016.
- */
+@Controller
 public class AdminUserRestController {
-private UserService service;
+@Autowired
+    private UserService service;
 }

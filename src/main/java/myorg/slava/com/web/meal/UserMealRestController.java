@@ -1,10 +1,11 @@
 package myorg.slava.com.web.meal;
 
 import myorg.slava.com.service.UserMealService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-/**
- * Created by home on 01.01.2017.
- */
+@Controller
 public class UserMealRestController {
-private UserMealService service;
+@Autowired
+    private UserMealService service;
 }

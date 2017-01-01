@@ -3,12 +3,11 @@ package myorg.slava.com.repository.mock;
 import myorg.slava.com.LoggerWrapper;
 import myorg.slava.com.model.User;
 import myorg.slava.com.repository.UserRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by home on 01.01.2017.
- */
+@Repository
 public class MockUserRepository implements UserRepository {
     private static final LoggerWrapper LOG = LoggerWrapper.get(MockUserRepository.class);
 

@@ -1,20 +1,12 @@
 package myorg.slava.com.repository;
 
-//import org.springframework.stereotype.Repository;
-
-
 import myorg.slava.com.model.User;
 import myorg.slava.com.model.UserMeal;
+import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-
-/**
- * v.seregin
- * on 08.11.2016.
- */
-
+@Repository
 public interface UserMealRepository {
 
    public UserMeal save(UserMeal userMeal, int userId);
