@@ -6,6 +6,7 @@ package myorg.slava.com;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hi Iam here on my home comp!");
+
+
     }
 }

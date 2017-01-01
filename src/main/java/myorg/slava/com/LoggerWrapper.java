@@ -1,9 +1,12 @@
 package myorg.slava.com;
 
+import myorg.slava.com.util.exception.ErrorInfo;
+import myorg.slava.com.util.exception.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
-import myorg.slava.com.util.exception.*;
+
+import javax.xml.bind.ValidationException;
 
 
 /**
@@ -80,7 +83,7 @@ public class LoggerWrapper {
 
     public ValidationException getValidationException(BindingResult result) {
         logger.error("Validation exception");
-        return new ValidationException(result);
+        return new ValidationException((Throwable) result);
     }
 
     public ErrorInfo getErrorInfo(CharSequence requestUrl, Exception e) {
