@@ -1,6 +1,5 @@
 package myorg.slava.com.repository;
 
-import myorg.slava.com.model.User;
 import myorg.slava.com.model.UserMeal;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +12,7 @@ public interface UserMealRepository {
 
   public   boolean delete (UserMeal userMeal, int userId);
 
-  public User get(int id, int userId);
+  public UserMeal get(int id, int userId);
 
   public   List<UserMeal> getAll(int userId);
 

@@ -1,23 +1,26 @@
 package myorg.slava.com.service;
 
 
-import myorg.slava.com.model.User;
 import myorg.slava.com.model.UserMeal;
 import myorg.slava.com.repository.UserMealRepository;
+import myorg.slava.com.util.exception.ExceptionUtil;
 import myorg.slava.com.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class UserMealServiceImpl implements UserMealService {
+    @Qualifier("userMealRepository")
     @Autowired
-    public UserMealRepository userMealRepo;
+    public UserMealRepository repository;
 
 
     @Override
-    public void save(User user, UserMeal meal) {
+    public void save(UserMeal meal, int id) {
 
     }
 
@@ -27,8 +30,8 @@ public class UserMealServiceImpl implements UserMealService {
     }
 
     @Override
-    public UserMeal get(int userId,int id) throws NotFoundException {
-        return null;
+    public UserMeal get(int id,int userId) throws NotFoundException {
+        return ExceptionUtil.check(repository.get(id, userId),id);
     }
 
     @Override
@@ -39,5 +42,15 @@ public class UserMealServiceImpl implements UserMealService {
     @Override
     public void deleteAll(int userId) throws NotFoundException {
 
+    }
+
+    @Override
+    public void update(UserMeal meal, int userId) throws NotFoundException {
+
+    }
+
+    @Override
+    public List<UserMeal> getBetween(LocalDate begin, LocalDate end, int userId) throws NotFoundException {
+        return null;
     }
 }

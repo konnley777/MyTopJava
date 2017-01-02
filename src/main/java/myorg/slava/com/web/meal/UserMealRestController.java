@@ -7,6 +7,7 @@ import myorg.slava.com.service.UserMealServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -36,5 +37,21 @@ public class UserMealRestController {
         int userId =LoggedUser.getId();
         LOG.info("delete all user meal by {} id",userId);
         service.deleteAll(userId);
+    }
+
+    public void update(UserMeal userMeal){
+        int id = LoggedUser.getId();
+        LOG.info("update usermeal from controller");
+        service.update(userMeal,id);
+    }
+    public void create(UserMeal userMeal){
+        int id = LoggedUser.getId();
+        LOG.info("create usermeal from controller");
+        service.save(userMeal,id);
+    }
+    public List<UserMeal> getBetween(LocalDate start,LocalDate end){
+        int id = LoggedUser.getId();
+        LOG.info("get list of usermeal from controller");
+        return service.getBetween(start,end,id);
     }
 }
