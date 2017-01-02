@@ -2,6 +2,7 @@ package myorg.slava.com;
 
 import myorg.slava.com.model.Role;
 
+import java.util.Collections;
 import java.util.Set;
 
 /**
@@ -9,12 +10,14 @@ import java.util.Set;
  * on 08.11.2016.
  */
 public  class LoggedUser {
-    protected static int id;
-    protected Set<Role> roles;
+    protected  int id=0;
+    protected Set<Role> roles = Collections.singleton(Role.ROLE_USER);
     protected boolean enabled=true;
+    private static LoggedUser LOGGED_USER = new LoggedUser();
 
+    private static LoggedUser get(){return LOGGED_USER;}
     public static int getId() {
-        return id;
+        return get().id;
     }
 
     public void setId(int id) {
