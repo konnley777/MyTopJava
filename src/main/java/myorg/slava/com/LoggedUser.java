@@ -2,19 +2,18 @@ package myorg.slava.com;
 
 import myorg.slava.com.model.Role;
 
-import java.util.Collections;
 import java.util.Set;
 
 /**
  * v.seregin
  * on 08.11.2016.
  */
-public class LoggedUser {
-    protected int id=1;
+public  class LoggedUser {
+    protected static int id;
     protected Set<Role> roles;
     protected boolean enabled=true;
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
@@ -37,4 +36,6 @@ public class LoggedUser {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+
 }
