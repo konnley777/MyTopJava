@@ -1,6 +1,5 @@
 package myorg.slava.com.model;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
@@ -14,15 +13,25 @@ private String email;
 private String password;
     private boolean enabled=true;
     private Date registered=new Date();
-    private Set<Role> authorities;
+    private Set<Role> roles;
 
-    public User(String name, String email, String password, Role role, Role... roles) {
-        super(name);
+    public User() {
+    }
+
+    public User(User u) {
+        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.isEnabled(), u.getRoles());
+    }
+
+    public User(Integer id, String name, String email, String password, boolean enabled, Role role, Role... roles) {
+        this(id, name, email, password, enabled, EnumSet.of(role, roles));
+    }
+
+    public User(Integer id, String name, String email, String password, boolean enabled, Set<Role> roles) {
+        super(id, name);
         this.email = email;
         this.password = password;
-        this.enabled = true;
-        this.registered = new Date();
-        this.authorities = EnumSet.of(role,roles);
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public String getEmail() {
@@ -48,13 +57,14 @@ private String password;
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-    public  void  setAuthorities (Role role){
-        if (this.authorities==null){
+    public  void setRoles(Role role){
+        if (this.roles ==null){
             EnumSet.of(role);}
-        else {authorities.add(role);}
+        else {
+            roles.add(role);}
     }
     public  boolean isEnabled(){return this.enabled;}
-    public Collection<Role> getAuthorities(){ return authorities;}
+    public Set<Role> getRoles(){ return roles;}
     public String getPassword(){return password;}
 
     @Override

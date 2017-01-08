@@ -10,7 +10,7 @@ import java.util.Set;
  * on 08.11.2016.
  */
 public  class LoggedUser {
-    protected  int id=0;
+    protected  int id=7;
     protected Set<Role> roles = Collections.singleton(Role.ROLE_USER);
     protected boolean enabled=true;
     private static LoggedUser LOGGED_USER = new LoggedUser();

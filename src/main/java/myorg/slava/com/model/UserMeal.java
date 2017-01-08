@@ -1,5 +1,8 @@
 package myorg.slava.com.model;
 
+import myorg.slava.com.util.TimeUtil;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -8,14 +11,15 @@ import java.util.Date;
  */
 public class UserMeal extends BaseEntity {
     private   User user;
-    private  String description;
-    private  Date dateAdd;
-    private int calories;
+    protected   String description;
+    private LocalDateTime datetime;
+    protected int calories;
 
-    public UserMeal(User user, String description, Date dateAdd, int calories) {
+    public UserMeal(){}
+    public UserMeal(User user, String description, LocalDateTime dateAdd, int calories) {
         this.user = user;
         this.description = description;
-        this.dateAdd = dateAdd;
+        this.datetime = datetime;
         this.calories = calories;
     }
 
@@ -35,12 +39,12 @@ public class UserMeal extends BaseEntity {
         this.description = description;
     }
 
-    public Date getDateAdd() {
-        return dateAdd;
+    public LocalDateTime getDateAdd() {
+        return datetime;
     }
 
     public void setDateAdd(Date dateAdd) {
-        this.dateAdd = dateAdd;
+        this.datetime = datetime;
     }
 
     public int getCalories() {
@@ -49,5 +53,15 @@ public class UserMeal extends BaseEntity {
 
     public void setCalories(int calories) {
         this.calories = calories;
+    }
+
+    @Override
+    public String toString() {
+        return "UserMeal{" +
+                "user=" + user +
+                ", description='" + description + '\'' +
+                ", datetime=" + TimeUtil.toString(datetime) +
+                ", calories=" + calories +
+                '}';
     }
 }
