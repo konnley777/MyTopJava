@@ -2,6 +2,7 @@ package myorg.slava.com.service;
 
 import myorg.slava.com.model.User;
 import myorg.slava.com.repository.UserRepository;
+import myorg.slava.com.util.exception.ExceptionUtil;
 import myorg.slava.com.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,33 +16,38 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository repository;
 
-      @Override
-    public User save(User user) {
-        return null;
+    @Override
+    public void create(User user) {
+
     }
 
     @Override
-    public void delete(int id) throws NotFoundException {
+    public User save(User user) {
+        return repository.save(user);
+    }
 
+    @Override
+    public void delete(int id)  {
+        ExceptionUtil.check(repository.delete(id),id);
     }
 
     @Override
     public User get(int id) throws NotFoundException {
-        return null;
+        return ExceptionUtil.check(repository.get(id),id);
     }
 
     @Override
     public User getByEMail(String email) throws NotFoundException {
-        return null;
+        return ExceptionUtil.check(repository.getByEMail(email),"email "+email);
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        return repository.getAll();
     }
 
     @Override
     public void update(User user) throws NotFoundException {
-
+        ExceptionUtil.check(repository.save(user),user.getId());
     }
 }

@@ -13,13 +13,18 @@ public class AdminUserRestController {
     @Autowired
     private UserService service;
 
+    public void create(User user){
+        LOG.info("create");
+
+    }
+
     public User get() {
         int id = LoggedUser.getId();
         LOG.info("get some logging user");
         return service.get(id);
     }
-    public void delete() {
-        int id = LoggedUser.getId();
+    public void delete(int id) {
+        //int id = LoggedUser.getId();
         LOG.info("delete some logging user");
         service.delete(id);
     }

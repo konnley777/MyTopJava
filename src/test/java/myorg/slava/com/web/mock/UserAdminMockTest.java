@@ -1,5 +1,7 @@
 package myorg.slava.com.web.mock;
 
+import myorg.slava.com.model.Role;
+import myorg.slava.com.model.User;
 import myorg.slava.com.util.exception.NotFoundException;
 import myorg.slava.com.web.user.AdminUserRestController;
 import org.junit.AfterClass;
@@ -27,12 +29,17 @@ public class UserAdminMockTest {
     }
 
     @Test
+    public void testCreate() throws Exception{
+        controller.create(new User(null,"Name","emalMe","password",true, Role.ROLE_ADMIN));
+    }
+
+    @Test
     public void testDelete() throws Exception {
-        controller.delete();
+        controller.delete(7);
     }
 
     @Test(expected = NotFoundException.class)
     public void testDeleteNotFound() throws Exception {
-        controller.delete();
+        controller.delete(0);
     }
 }

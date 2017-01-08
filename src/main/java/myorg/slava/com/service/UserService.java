@@ -10,6 +10,9 @@ import java.util.List;
  * on 08.11.2016.
  */
 public interface UserService {
+
+    public void create(User user);
+
     public User save(User user);
     //false if not found
     public void delete(int id) throws NotFoundException;
