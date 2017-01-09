@@ -29,10 +29,10 @@ public class MockUserMealRepositoryImpl implements UserMealRepository {
     }
 
     @Override
-    public boolean delete(UserMeal userMeal, int userId) {
-
-        return false;
+    public boolean delete(int id, int userId) {
+        return true;
     }
+
 
     @Override
     public UserMeal get(int id,  int userId) {
@@ -49,12 +49,7 @@ public class MockUserMealRepositoryImpl implements UserMealRepository {
 
     }
 
-    @Override
-    public void update(UserMeal userMeal) {
-
-    }
-
-    @Override
+     @Override
     public List<UserMeal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
         return null;
     }

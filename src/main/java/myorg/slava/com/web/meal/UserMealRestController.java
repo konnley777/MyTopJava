@@ -3,18 +3,17 @@ package myorg.slava.com.web.meal;
 import myorg.slava.com.LoggedUser;
 import myorg.slava.com.LoggerWrapper;
 import myorg.slava.com.model.UserMeal;
-import myorg.slava.com.service.UserMealServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
 public class UserMealRestController {
     private static final LoggerWrapper LOG = LoggerWrapper.get(UserMealRestController.class);
 @Autowired
-    private UserMealServiceImpl service;
+private  myorg.slava.com.service.UserMealServiceImpl service;
 
     public UserMeal get(int id){
         int userId = LoggedUser.getId();
@@ -49,7 +48,7 @@ public class UserMealRestController {
         LOG.info("create usermeal from controller");
         service.save(userMeal,id);
     }
-    public List<UserMeal> getBetween(LocalDate start,LocalDate end){
+    public List<UserMeal> getBetween(LocalDateTime start, LocalDateTime end){
         int id = LoggedUser.getId();
         LOG.info("get list of usermeal from controller");
         return service.getBetween(start,end,id);

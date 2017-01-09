@@ -5,10 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 <!--<bean class="myorg.slava.com.repository.mock.MockUserRepository" id="mockUserRepository"></bean>-->
-<context:annotation-config></context:annotation-config>
-    <context:component-scan base-package="myorg.**.repository.*"/>
-    <context:component-scan base-package="myorg.slava.com.repository.mock"/>
-    <context:component-scan base-package="myorg.slava.com.service.*"/>
-    <context:component-scan base-package="myorg.slava.com.web.*"/>
+<context:annotation-config/>
+       <context:component-scan base-package="myorg.**.repository"/>
 
+     <context:component-scan base-package="myorg.**.service"/>
+    <context:component-scan base-package="myorg.**.web.meal"/>
+    <context:component-scan base-package="myorg.**.web.user"/>
+    <context:annotation-config></context:annotation-config>
 </beans>

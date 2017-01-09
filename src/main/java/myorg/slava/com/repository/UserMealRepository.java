@@ -1,24 +1,32 @@
 package myorg.slava.com.repository;
 
+
+
 import myorg.slava.com.model.UserMeal;
-import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-@Repository
+
+/**
+ * GKislin
+ * 06.03.2015.
+ */
 public interface UserMealRepository {
 
-   public UserMeal save(UserMeal userMeal, int userId);
+    // UserMeal.user = null
+    UserMeal save(UserMeal userMeal, int userId);
 
-  public   boolean delete (UserMeal userMeal, int userId);
+    // false if not found
+    boolean delete(int id, int userId);
 
-  public UserMeal get(int id, int userId);
+    // null if not found
+    UserMeal get(int id, int userId);
 
-  public   List<UserMeal> getAll(int userId);
+    // ORDERED DATE, TIME
+    List<UserMeal> getAll(int userId);
 
-    public   void deleteAll(int userId);
+    void deleteAll(int userId);
 
-   public void update(UserMeal userMeal);
+    List<UserMeal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId);
 
-    public List<UserMeal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId);
 }

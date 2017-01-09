@@ -1,56 +1,57 @@
 package myorg.slava.com.service;
 
-
 import myorg.slava.com.model.UserMeal;
-import myorg.slava.com.repository.UserMealRepository;
+import myorg.slava.com.repository.mock.MockUserMealRepositoryImpl;
 import myorg.slava.com.util.exception.ExceptionUtil;
-import myorg.slava.com.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * GKislin
+ * 06.03.2015.
+ */
 @Service
 public class UserMealServiceImpl implements UserMealService {
-    @Qualifier("userMealRepository")
+
     @Autowired
-    public UserMealRepository repository;
-
+    MockUserMealRepositoryImpl repository;
 
     @Override
-    public void save(UserMeal meal, int id) {
-
+    public UserMeal get(int id, int userId) {
+        return ExceptionUtil.check(repository.get(id, userId), id);
     }
 
     @Override
-    public void delete(int id,int userId) throws NotFoundException {
-
+    public void delete(int id, int userId) {
+        ExceptionUtil.check(repository.delete(id, userId), id);
     }
 
     @Override
-    public UserMeal get(int id,int userId) throws NotFoundException {
-        return ExceptionUtil.check(repository.get(id, userId),id);
+    public List<UserMeal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
+        return repository.getBetween(startDate, StringUtils.isEmpty(endDate) ? LocalDateTime.now() : endDate, userId);
     }
 
     @Override
-    public List<UserMeal> getAll(int userId) throws NotFoundException {
-        return null;
+    public List<UserMeal> getAll(int userId) {
+        return repository.getAll(userId);
     }
 
     @Override
-    public void deleteAll(int userId) throws NotFoundException {
-
+    public void deleteAll(int userId) {
+        repository.deleteAll(userId);
     }
 
     @Override
-    public void update(UserMeal meal, int userId) throws NotFoundException {
-
+    public UserMeal update(UserMeal meal, int userId) {
+        return ExceptionUtil.check(repository.save(meal, userId), meal.getId());
     }
 
     @Override
-    public List<UserMeal> getBetween(LocalDate begin, LocalDate end, int userId) throws NotFoundException {
-        return null;
+    public UserMeal save(UserMeal meal, int userId) {
+        return repository.save(meal, userId);
     }
 }

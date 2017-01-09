@@ -12,7 +12,8 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Qualifier("userRepository")
+
+    @Qualifier("mockUserRepositoryImpl")
     @Autowired
     private UserRepository repository;
 
