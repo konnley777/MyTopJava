@@ -1,4 +1,4 @@
-package ru.javawebinar.topjava.util;
+package myorg.slava.com.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.DefaultResourceLoader;
