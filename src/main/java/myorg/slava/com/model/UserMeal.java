@@ -12,14 +12,23 @@ import java.util.Date;
 public class UserMeal extends BaseEntity {
     private   User user;
     protected   String description;
-    private LocalDateTime datetime;
+    private LocalDateTime dateTime;
     protected int calories;
 
     public UserMeal(){}
+    public UserMeal(UserMeal meal) {
+        this(meal.id, meal.dateTime, meal.description, meal.calories);
+    }
+    public UserMeal(Integer id, LocalDateTime dateTime, String description, int calories) {
+        super(id);
+        this.dateTime = dateTime;
+        this.description = description;
+        this.calories = calories;
+    }
     public UserMeal(User user, String description, LocalDateTime dateAdd, int calories) {
         this.user = user;
         this.description = description;
-        this.datetime = datetime;
+        this.dateTime = dateTime;
         this.calories = calories;
     }
 
@@ -40,11 +49,11 @@ public class UserMeal extends BaseEntity {
     }
 
     public LocalDateTime getDateAdd() {
-        return datetime;
+        return dateTime;
     }
 
     public void setDateAdd(Date dateAdd) {
-        this.datetime = datetime;
+        this.dateTime = dateTime;
     }
 
     public int getCalories() {
@@ -60,7 +69,7 @@ public class UserMeal extends BaseEntity {
         return "UserMeal{" +
                 "user=" + user +
                 ", description='" + description + '\'' +
-                ", datetime=" + TimeUtil.toString(datetime) +
+                ", dateTime=" + TimeUtil.toString(dateTime) +
                 ", calories=" + calories +
                 '}';
     }

@@ -1,26 +1,31 @@
-package java.myorg.slava.com.repository.mock;
+package ru.javawebinar.topjava.repository.mock;
 
-import myorg.slava.com.model.UserMeal;
-import myorg.slava.com.repository.UserMealRepository;
 import org.springframework.stereotype.Repository;
+import ru.javawebinar.topjava.model.UserMeal;
+import ru.javawebinar.topjava.repository.UserMealRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * GKislin
+ * 09.03.2015.
+ */
 @Repository
 public class MockUserMealRepositoryImpl implements UserMealRepository {
+
     @Override
-    public UserMeal save(UserMeal userMeal, int userId) {
+    public UserMeal save(UserMeal UserMeal, int userId) {
         return null;
     }
 
     @Override
-    public boolean delete(UserMeal userMeal, int userId) {
-        return false;
+    public boolean delete(int id, int userId) {
+        return true;
     }
 
     @Override
-    public UserMeal get(int id,  int userId) {
+    public UserMeal get(int id, int userId) {
         return null;
     }
 
@@ -31,11 +36,6 @@ public class MockUserMealRepositoryImpl implements UserMealRepository {
 
     @Override
     public void deleteAll(int userId) {
-
-    }
-
-    @Override
-    public void update(UserMeal userMeal) {
 
     }
 
