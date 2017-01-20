@@ -17,8 +17,9 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
+        <fileset id="fileset" name="Spring Application Context" removed="false" profiles="datajpa,heroku,hsqldb,jdbc,jpa,postgres,tomcat">
           <file>file://$MODULE_DIR$/src/main/resources/spring/spring-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-db.xml</file>
         </fileset>
       </configuration>
     </facet>
