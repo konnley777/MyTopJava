@@ -14,17 +14,17 @@ public class UserRestController {
     private UserService service;
 
 public User get() {
-int id = LoggedUser.getId();
+int id = LoggedUser.id();
  LOG.info("get some logging user");
     return service.get(id);
 }
     public void delete() {
-        int id = LoggedUser.getId();
+        int id = LoggedUser.id();
         LOG.info("delete some logging user");
          service.delete(id);
     }
     public void update(User user) {
-        int id = LoggedUser.getId();
+        int id = LoggedUser.id();
         LOG.info("update some logging user");
         service.update(user);
     }

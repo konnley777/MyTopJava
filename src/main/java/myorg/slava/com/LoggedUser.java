@@ -10,13 +10,13 @@ import java.util.Set;
  * on 08.11.2016.
  */
 public  class LoggedUser {
-    protected  int id=7;
+    protected  int id=0;
     protected Set<Role> roles = Collections.singleton(Role.ROLE_USER);
     protected boolean enabled=true;
     private static LoggedUser LOGGED_USER = new LoggedUser();
 
     private static LoggedUser get(){return LOGGED_USER;}
-    public static int getId() {
+    public static int id() {
         return get().id;
     }
 
@@ -24,7 +24,7 @@ public  class LoggedUser {
         this.id = id;
     }
 
-    public Set<Role> getRoles() {
+    public Set<Role> getAuthorities() {
         return roles;
     }
 

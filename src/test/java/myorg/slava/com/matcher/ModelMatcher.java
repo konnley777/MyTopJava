@@ -1,10 +1,11 @@
-package ru.javawebinar.topjava.matcher;
+package myorg.slava.com.matcher;
 
+import myorg.slava.com.web.json.JsonUtil;
 import org.junit.Assert;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
-import ru.javawebinar.topjava.TestUtil;
-import ru.javawebinar.topjava.web.json.JsonUtil;
+
+
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;

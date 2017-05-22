@@ -1,5 +1,6 @@
-package ru.javawebinar.topjava.service;
+package myorg.slava.com.service;
 
+import myorg.slava.com.service.UserService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;

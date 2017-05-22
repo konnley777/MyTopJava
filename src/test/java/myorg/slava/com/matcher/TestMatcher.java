@@ -1,4 +1,4 @@
-package ru.javawebinar.topjava.matcher;
+package myorg.slava.com.matcher;
 
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;

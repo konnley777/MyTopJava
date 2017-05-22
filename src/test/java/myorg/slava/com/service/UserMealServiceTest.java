@@ -1,18 +1,22 @@
-package ru.javawebinar.topjava.service;
+package myorg.slava.com.service;
 
+import myorg.slava.com.model.UserMeal;
+import myorg.slava.com.util.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.javawebinar.topjava.model.UserMeal;
-import ru.javawebinar.topjava.util.exception.NotFoundException;
+
+
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-import static ru.javawebinar.topjava.MealTestData.*;
-import static ru.javawebinar.topjava.model.BaseEntity.START_SEQ;
 
-abstract public class UserMealServiceTest extends DbTest {
+
+//import static java.myorg.slava.com.MealTestData.*;
+//import static java.myorg.slava.com.model.BaseEntity.START_SEQ;
+
+abstract public class UserMealServiceTest extends myorg.slava.com.service.DbTest {
 
     @Autowired
     UserMealService service;

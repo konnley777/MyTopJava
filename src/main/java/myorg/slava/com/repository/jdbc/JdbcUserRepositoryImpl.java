@@ -125,19 +125,19 @@ public class JdbcUserRepositoryImpl implements UserRepository {
 //                (rs, rowNum) -> new UserRole(Role.valueOf(rs.getString("role")), rs.getInt("user_id")))
 //                .stream().collect(Collectors.groupingBy(UserRole::getUserId));
 //
-//        users.forEach(u -> u.setRoles(userRoles.get(u.getId()).stream().map(UserRole::getRole).collect(Collectors.toList())));
+//        users.forEach(u -> u.setRoles(userRoles.get(u.id()).stream().map(UserRole::getRole).collect(Collectors.toList())));
         return users;
     }
 
 //    private void insertRoles(User u) {
-//        Set<Role> roles = u.getRoles();
+//        Set<Role> roles = u.getAuthorities();
 //        Iterator<Role> iterator = roles.iterator();
 //
 //        jdbcTemplate.batchUpdate("INSERT INTO user_roles (user_id, role) VALUES (?, ?)",
 //                new BatchPreparedStatementSetter() {
 //                    @Override
 //                    public void setValues(PreparedStatement ps, int i) throws SQLException {
-//                        ps.setInt(1, u.getId());
+//                        ps.setInt(1, u.id());
 //                        ps.setString(2, iterator.next().name());
 //                    }
 //
@@ -154,7 +154,7 @@ public class JdbcUserRepositoryImpl implements UserRepository {
 
 //    private User setRoles(User u) {
 //        List<Role> roles = jdbcTemplate.query("SELECT role FROM user_roles  WHERE user_id=?",
-//                (rs, rowNum) -> Role.valueOf(rs.getString("role")), u.getId());
+//                (rs, rowNum) -> Role.valueOf(rs.getString("role")), u.id());
 //        u.setRoles(roles);
 //        return u;
 //    }
