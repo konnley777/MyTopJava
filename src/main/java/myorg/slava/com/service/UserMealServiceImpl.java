@@ -1,9 +1,11 @@
 package myorg.slava.com.service;
 
 import myorg.slava.com.model.UserMeal;
+import myorg.slava.com.repository.UserMealRepository;
 import myorg.slava.com.repository.mock.MockUserMealRepositoryImpl;
 import myorg.slava.com.util.exception.ExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -17,8 +19,9 @@ import java.util.List;
 @Service
 public class UserMealServiceImpl implements UserMealService {
 
+    @Qualifier("mockUserMealRepositoryImpl")
     @Autowired
-    MockUserMealRepositoryImpl repository;
+    private UserMealRepository repository;
 
     @Override
     public UserMeal get(int id, int userId) {
